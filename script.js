@@ -4,9 +4,7 @@
 const player0EL = document.querySelector('.player--0');
 const player1EL = document.querySelector('.player--1');
 const score0EL = document.querySelector('#score--0');
-// const current_scoreEL0 = document.getElementById("current--0");
 const score1EL  = document.getElementById('score--1');
-// const current_scoreEL1 = document.getElementById('current--1');
 const diceEL = document.querySelector('.dice')
 const dice_roll_button = document.querySelector('.btn--roll');
 const btnNew = document.querySelector('.btn--new');
@@ -41,7 +39,7 @@ const switchPlayer = function() {
 let gameFunctionality = function() {
     const dice = Math.floor(Math.random() * 6) + 1;
     diceEL.classList.remove('hidden')
-    diceEL.src = `dice-${dice}.png`
+    diceEL.src = `images/dice-${dice}.png`
 
 
     if (dice !== 1) {
