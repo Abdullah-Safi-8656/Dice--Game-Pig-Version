@@ -26,9 +26,10 @@ let current_state = false;
 
 // Switching players 
 const switchPlayer = function() {
+
     document.getElementById(`current--${active_player}`).textContent = 0;
     current_score = 0;
-
+    
     active_player = active_player === 0 ? 1 : 0;
 
     player0EL.classList.toggle('player--active');
@@ -86,3 +87,37 @@ btnHold.addEventListener('click', function() {
 });
 
 
+
+
+// reset button fanctionality
+btnNew.addEventListener('click', function() {
+    current_score = 0;
+    active_player = 0;
+
+    // setting the total score of the players to 0
+    score0EL.textContent = 0;
+    score1EL.textContent = 0;
+
+    // setting the current scores of the players to 0
+    document.getElementById('current--0').textContent = 0;
+    document.getElementById('current--1').textContent = 0;
+
+    // making the scores array empaty
+    for(let i=0; i<scores.length; i++) {
+        scores[i] = 0;
+    };
+
+    // enabling buttons
+    dice_roll_button.disabled = false;
+    btnHold.disabled = false;
+
+
+    // removing winner status from the players
+    player0EL.classList.remove('player--winner');
+    player1EL.classList.remove('player--winner');
+
+    // adding active status to the player 1 and removing it from player 2
+    player0EL.classList.add('player--active');
+    player1EL.classList.remove('player--active');
+
+});
